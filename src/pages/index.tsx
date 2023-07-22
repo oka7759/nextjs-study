@@ -1,10 +1,13 @@
 import { NextPage } from 'next'
-import Link from 'next/link'
-interface Props {}
+import {getFeaturedEvents} from '../../dummy-data'
+import EventList from '@/components/events/eventList'
+import {EventData} from '../types/props'
 
-const HomePage: NextPage<Props> = ({}) => {
+const HomePage: NextPage = () => {
+  const featuredEvent:EventData[] =getFeaturedEvents()
+
   return <div>
-
+    <EventList items={featuredEvent}/>
   </div>
 }
 
