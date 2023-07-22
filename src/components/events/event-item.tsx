@@ -1,49 +1,47 @@
-import { NextComponentType, NextPage } from 'next'
-import Link from 'next/link'
-import { JsxElement } from 'typescript'
-import {EventData} from '../../types/props'
-import classes from './event-item.module.css'
-import Button from '../ui/button'
-import DateIcon from '../icons/date-icon'
-import AddressIcon from '../icons/address-icon'
-import ArrowRightIcon from '../icons/arrow-right-icon'
+import { NextComponentType, NextPage } from "next";
+import Link from "next/link";
+import { JsxElement } from "typescript";
+import { EventData } from "../../types/props";
+import classes from "./event-item.module.css";
+import Button from "../ui/button";
+import DateIcon from "../icons/date-icon";
+import AddressIcon from "../icons/address-icon";
+import ArrowRightIcon from "../icons/arrow-right-icon";
 
-
-
-const EventItem = ({ title, image, date, location, id } :EventData) => {   
-    
-    const humanReadableDate = new Date(date).toLocaleDateString('en-US', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-      });
-    const formeattedAddress = location.replace(', ', '\n');
-    const exploreLink =`/event/'${id}`
-  return <li className={classes.item}>
-    <img src={'/'+image} alt=''/>
-    <div className={classes.content}>
+const EventItem = ({ title, image, date, location, id }: EventData) => {
+  const humanReadableDate = new Date(date).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  const formeattedAddress = location.replace(", ", "\n");
+  const exploreLink = `/event/${id}`;
+  return (
+    <li className={classes.item}>
+      <img src={"/" + image} alt="" />
+      <div className={classes.content}>
         <div className={classes.summary}>
-            <h2>{title}</h2>
-            <div className={classes.date}>
-              <DateIcon/>
-                <time>{humanReadableDate}</time>
-            </div>
-            <div className={classes.address}>
-              <AddressIcon/>
-                <address>{formeattedAddress}</address>
-            </div>
+          <h2>{title}</h2>
+          <div className={classes.date}>
+            <DateIcon />
+            <time>{humanReadableDate}</time>
+          </div>
+          <div className={classes.address}>
+            <AddressIcon />
+            <address>{formeattedAddress}</address>
+          </div>
         </div>
         <div className={classes.actions}>
-          
-            <Button link={exploreLink}>
-              <span>Event</span>
+          <Button link={exploreLink}>
+            <span>Event</span>
             <span className={classes.icon}>
-            <ArrowRightIcon/>
-          </span>
+              <ArrowRightIcon />
+            </span>
           </Button>
         </div>
-    </div>
-  </li>
-}
+      </div>
+    </li>
+  );
+};
 
-export default EventItem
+export default EventItem;
