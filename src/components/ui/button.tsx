@@ -1,12 +1,21 @@
-import { NextPage } from 'next'
-import Link from 'next/link'
-import classes from './button.module.css'
-import { BtnProps } from '@/types/props'
+import { NextPage } from "next";
+import Link from "next/link";
+import classes from "./button.module.css";
+import { BtnProps } from "@/types/props";
 
-interface Props {}
+const Button = (props: BtnProps) => {
+  if (props.link) {
+    return (
+      <Link className={classes.btn} href={props.link}>
+        {props.children}
+      </Link>
+    );
+  }
+  return (
+    <button className={classes.btn} onClick={props.onClick}>
+      {props.children}
+    </button>
+  );
+};
 
-const Button = (props:BtnProps) => {
-  return <Link className={classes.btn} href={props.link}>{props.children}</Link>
-}
-
-export default Button
+export default Button;

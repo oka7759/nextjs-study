@@ -1,14 +1,16 @@
-import { NextPage } from 'next'
-import {getFeaturedEvents} from '../../dummy-data'
-import EventList from '@/components/events/eventList'
-import {EventData} from '../types/props'
+import { NextPage } from "next";
+import { getFeaturedEvents } from "../../dummy-data";
+import EventList from "@/components/events/eventList";
+import { EventData } from "../types/props";
 
 const HomePage: NextPage = () => {
-  const featuredEvent:EventData[] =getFeaturedEvents()
+  const featuredEvent: EventData[] = getFeaturedEvents();
 
-  return <div>
-    <EventList items={featuredEvent}/>
-  </div>
-}
+  return (
+    <div>
+      <EventList items={featuredEvent} />
+    </div>
+  );
+};
 
-export default HomePage
+export default HomePage;

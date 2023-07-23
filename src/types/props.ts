@@ -1,14 +1,15 @@
 export interface EventData {
-    title: string;
-    image: string;
-    date: string;
-    location: string;
-    id: string;
-  }
+  title: string;
+  image: string;
+  date: string;
+  location: string;
+  id: string;
+}
 
-export interface BtnProps{
-  link:string;
+export interface BtnProps {
+  link: string | undefined;
   children: React.ReactNode;
+  onClick: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
 export interface GetEvent {
